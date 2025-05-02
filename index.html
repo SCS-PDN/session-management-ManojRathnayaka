@@ -2,9 +2,24 @@
 <html>
 <head>
     <title>University Course Registration - Login</title>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error')) {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        };
+    </script>
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h1>Login to Course Registration</h1>
+    <div id="error-message" class="error">Invalid username or password. Please try again.</div>
     <form action="LoginServlet" method="POST">
         Username: <input type="text" name="username" required><br>
         Password: <input type="password" name="password" required><br>
